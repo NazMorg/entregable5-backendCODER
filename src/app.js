@@ -36,7 +36,9 @@ socketServer.on("connection", (socket) => {
     console.log(`Cliente conectado: ${socket.id}`);
 
     socket.on("createMessage", async (msg) => {
+        console.log("msg: ", msg); // {user:usuario ingresado, message: mensaje ingresado}
         const newMessage = await messagesManager.createOne(msg);
+        console.log("newMessage: ", newMessage); // undefined
         socketServer.emit("sendMessage", newMessage);
     })
 
