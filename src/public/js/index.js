@@ -11,13 +11,11 @@ form.onsubmit = (e) => {
         user: inputUser.value,
         message: inputMsg.value,
     };
+    console.log(userMsg)
     socketClient.emit("createMessage", userMsg);
 }
 
-socketClient.on("sendMessage", (message) => {
-    if(!message) {
-        console.log("message:", message);
-    }
+socketClient.on("sendMessage", () => {
     socketClient.emit("showMessages");
 });
 

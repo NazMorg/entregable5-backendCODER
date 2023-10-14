@@ -4,7 +4,6 @@ const messagesSchema = new Schema({
     user: {
         type: String,
         required: true,
-        unique: true,
     },
     messages: {
         type: [{ body: String, date: Date }],
